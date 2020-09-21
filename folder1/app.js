@@ -12,8 +12,7 @@
       var ingredients;
     
       if ($scope.ingredients) {
-        ingredients = $scope.ingredients.split(",");
-        ingredients = items.filter(function(ingredient) {
+        ingredients = $scope.ingredients.split(",").filter(function(ingredient) {
           return ingredient.length > 0;
         });
         if (ingredients.length <= 3) {
