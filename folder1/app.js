@@ -11,8 +11,8 @@
     $scope.sayMessage = function () {
       var ingredients;
     
-      if ($scope.input) {
-        ingredients = $scope.input.split(",");
+      if ($scope.ingredients) {
+        ingredients = $scope.ingredients.split(",");
         ingredients = items.filter(function(ingredient) {
           return ingredient.length > 0;
         });
