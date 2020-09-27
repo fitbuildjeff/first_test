@@ -9,7 +9,7 @@ angular.module('ShoppingListCheckOff', [])
 ToBuyController.$inject =['ShoppingListCheckOffService'];
 function ToBuyController(ShoppingListCheckOffService) {
   var buyList = this;
-  buyList.items = ShoppingListCheckOffService.stillToPurchaseItems;
+  buyList.items = ShoppingListCheckOffService.stillToPurchaseItems();
   buyList.purchaseTreat = function(itemIndex) {
     ShoppingListCheckOffService.purchaseTreat(itemIndex);
   }
@@ -27,14 +27,14 @@ function ShoppingListCheckOffService() {
   var service = this;
 
   var toBuy = [
-    { name: "jars of honey", quantity: 3 },
-    { name: "dark chocolate bars", quantity: 4 },
-    { name: "bags of marshmellows", quantity: 2 },
-    { name: "graham cracker packages", quantity: 3 },
-    { name: "licorice root tea", quantity: 2 },
-    { name: "figs", quantity: 6 },
-    { name: "bag of choc covered almonds", quantity: 1 },
-    { name: "containers of blueberries", quantity: 3 }
+      { name: "jars of honey", quantity: 3 }, 
+      { name: "dark chocolate bars", quantity: 4 }, 
+      { name: "bags of marshmellows", quantity: 2 }, 
+      { name: "graham cracker packages", quantity: 3 },  
+      { name: "licorice root tea", quantity: 2 }, 
+      { name: "figs", quantity: 6 }, 
+      { name: "bag of choc covered almonds", quantity: 1 }, 
+      { name: "containers of blueberries", quantity: 3 }
   ];
   var bought = [];
 
@@ -46,7 +46,7 @@ function ShoppingListCheckOffService() {
     return bought;
   };
 
-  service.purchaseTreat =  function() {
+  service.purchaseTreat = function(itemIndex) {
     bought.push(toBuy[itemIndex]);
     toBuy.splice(itemIndex, 1);
   };
